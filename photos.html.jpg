@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Наши воспоминания ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    background:white;
+    overflow-x:hidden;
+}
+
+/* заголовок */
+h1{
+    text-align:center;
+    color:black;
+    padding:20px;
+    margin:0;
+}
+
+/* один блок */
+.memory{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+/* дата */
+.date{
+    font-size:20px;
+    font-weight:bold;
+    color:#333;
+    margin:20px 0 10px 0;
+}
+
+/* фото */
+.memory img{
+    width:90%;
+    max-width:700px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* ===== СВЕТЛЫЕ СЕРДЕЧКИ ===== */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ffb6c1;
+    font-size:10px;
+    opacity:0.5;
+    animation: floatUp 7s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+    10%{
+        opacity:0.6;
+    }
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Наши воспоминания</h1>
+
+<!-- ВОСПОМИНАНИЯ -->
+<div class="memory">
+    <div class="date">Июнь 2024</div>
+    <img src="foto1.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Июль 2024</div>
+    <img src="foto2.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Август 2024</div>
+    <img src="foto3.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Сентябрь 2024</div>
+    <img src="foto4.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Октябрь 2024</div>
+    <img src="foto5.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Ноябрь 2024</div>
+    <img src="foto6.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Декабрь 2024</div>
+    <img src="foto7.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Январь 2025</div>
+    <img src="foto8.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Февраль 2025</div>
+    <img src="foyto9.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Март 2025</div>
+    <img src="foto10.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Апрель 2025</div>
+    <img src="foto11.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Май 2025</div>
+    <img src="foto12.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Июнь 2025</div>
+    <img src="foto13.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Июль 2025</div>
+    <img src="foto14.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Август 2025</div>
+    <img src="foto15.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Сентябрь 2025</div>
+    <img src="foto16.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Октябрь 2025</div>
+    <img src="foto17.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Ноябрь 2025</div>
+    <img src="foto18.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Декабрь 2025</div>
+    <img src="foto19.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Январь 2026</div>
+    <img src="foyo20.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Февраль 2026</div>
+    <img src="foto21.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Март 2026</div>
+    <img src="foto22.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Апрель 2026</div>
+    <img src="foto23.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Май 2026</div>
+    <img src="foto24.jpg">
+</div>
+
+<div class="memory">
+    <div class="date">Июнь 2026 ❤️</div>
+    <img src="foto25.jpg">
+</div>
+
+<!-- СЕРДЕЧКИ JS -->
+<script>
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (6 + Math.random() * 8) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>m</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:white !important;
+    font-family:Arial,sans-serif;
+    text-align:center;
+}
+
+/* текст */
+h1{
+    color:black;
+    max-width:800px;
+    padding:20px;
+}
+
+/* сердечко */
+.heart{
+    color:red;
+    font-size:18px;
+    line-height:18px;
+    white-space:pre;
+    margin:20px 0;
+}
+
+/* кнопка */
+button{
+    padding:15px 40px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    background:#444;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Мы лучшие подруги уже 2 года, и я этому безумно рада ❤️</h1>
+
+<div class="heart">
+  ❤️❤️❤️      ❤️❤️❤️
+  ❤️❤️❤️❤️❤️ ❤️❤️❤️❤️❤️
+ ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+ ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+  ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+   ❤️❤️❤️❤️❤️❤️❤️❤️❤️
+    ❤️❤️❤️❤️❤️❤️❤️❤️
+    ❤️❤️❤️❤️❤️❤️
+    ❤️❤️❤️❤️
+    ❤️❤️
+</div>
+
+<button onclick="window.location.href='photos.html'">
+    Дальше
+</button>
+
+</body>
+</html>
