@@ -28,7 +28,7 @@ h1{
     top:30px;
     text-align:center;
     color:black;
-    font-size:28px;
+    font-size:22px;
     max-width:900px;
     padding:0 20px;
 }
@@ -51,28 +51,43 @@ canvas{
 }
 </style>
 </head>
+
 <body>
 
 <h1>Мы лучшие подруги уже 2 года, и я этому безумно рада</h1>
 
 <canvas id="canvas"></canvas>
 
-<button id="nextBtn" onclick="location.href='photos.html'">
-Дальше
-</button>
+<button id="nextBtn" onclick="location.href='photos.html'">Дальше</button>
 
 <script>
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-function resizeCanvas(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+let W, H, scale;
+
+function resize(){
+    const dpr = window.devicePixelRatio || 1;
+
+    W = window.innerWidth;
+    H = window.innerHeight;
+
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+
+    canvas.style.width = W + "px";
+    canvas.style.height = H + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    scale = Math.min(W, H) / 30; // ключ к нормальному виду на телефоне
+
+    initParticles();
 }
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize", resize);
 
 const particles = [];
+let progress = 0;
 
 function initParticles(){
     particles.length = 0;
@@ -86,24 +101,21 @@ function initParticles(){
                  - Math.cos(4*t));
 
         particles.push({
-            tx: canvas.width/2 + x * 22,
-            ty: canvas.height/2 + y * 22,
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
+            tx: W/2 + x * scale,
+            ty: H/2 + y * scale,
+            x: Math.random() * W,
+            y: Math.random() * H,
             alpha: 0
         });
     }
-}
-initParticles();
 
-let progress = 0;
+    progress = 0;
+}
 
 function animate(){
-
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,W,H);
 
     for(let i=0;i<particles.length;i++){
-
         if(i < progress){
 
             const p = particles[i];
@@ -111,7 +123,7 @@ function animate(){
             p.x += (p.tx - p.x) * 0.05;
             p.y += (p.ty - p.y) * 0.05;
 
-            p.alpha = Math.min(1,p.alpha+0.02);
+            p.alpha = Math.min(1,p.alpha + 0.02);
 
             ctx.globalAlpha = p.alpha;
             ctx.fillStyle = "red";
@@ -131,6 +143,7 @@ function animate(){
     requestAnimationFrame(animate);
 }
 
+resize();
 animate();
 </script>
 
